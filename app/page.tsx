@@ -6,59 +6,51 @@ import { Textarea } from "@/components/ui/textarea";
 import { Mail, MapPin, FileText, Building2, BedDouble, CalendarDays, Ruler } from "lucide-react";
 import { motion } from "framer-motion";
 
-/**
- * THE IRIS — One‑page marketing site (preview)
- *
- * Notes for Mahmoud:
- * 1) Replace the default asset paths below with your final files once hosted (e.g., /assets/... or a CDN). 
- * 2) The PDF and image paths below point to the files you shared in this chat. In this preview they may not render due to sandboxing, but the layout and UX are ready.
- * 3) The contact form is a mailto fallback. We can swap to Formspree or a custom endpoint later.
- */
 
-const DEFAULT_FLOORPLAN_PDF = "/mnt/data/25 CAPITAL DRIVE 1125.pdf"; // Replace with your public URL
-const DEFAULT_EXTERIOR_IMG = "/mnt/data/the-iris-assets/iris-exterior-north-facade-2000w.jpg"; // Optimized JPG generated from TIFF
+const DEFAULT_FLOORPLAN_PDF = "/25 CAPITAL DRIVE 1125.pdf"; // Replace with your public URL
+const DEFAULT_EXTERIOR_IMG = "/assets/iris-exterior-north-facade-2000w.jpg"; // Optimized JPG generated from TIFF
 
 const PLAN_THUMBS = [
-  "/mnt/data/the-iris-assets/plans-thumbs/plan-p01-thumb.jpg",
-  "/mnt/data/the-iris-assets/plans-thumbs/plan-p02-thumb.jpg",
-  "/mnt/data/the-iris-assets/plans-thumbs/plan-p03-thumb.jpg",
-  "/mnt/data/the-iris-assets/plans-thumbs/plan-p04-thumb.jpg",
-  "/mnt/data/the-iris-assets/plans-thumbs/plan-p05-thumb.jpg",
-  "/mnt/data/the-iris-assets/plans-thumbs/plan-p06-thumb.jpg",
-  "/mnt/data/the-iris-assets/plans-thumbs/plan-p07-thumb.jpg",
-  "/mnt/data/the-iris-assets/plans-thumbs/plan-p08-thumb.jpg",
-  "/mnt/data/the-iris-assets/plans-thumbs/plan-p09-thumb.jpg",
-  "/mnt/data/the-iris-assets/plans-thumbs/plan-p10-thumb.jpg",
-  "/mnt/data/the-iris-assets/plans-thumbs/plan-p11-thumb.jpg",
-  "/mnt/data/the-iris-assets/plans-thumbs/plan-p12-thumb.jpg",
-  "/mnt/data/the-iris-assets/plans-thumbs/plan-p13-thumb.jpg",
-  "/mnt/data/the-iris-assets/plans-thumbs/plan-p14-thumb.jpg",
-  "/mnt/data/the-iris-assets/plans-thumbs/plan-p15-thumb.jpg",
-  "/mnt/data/the-iris-assets/plans-thumbs/plan-p16-thumb.jpg",
-  "/mnt/data/the-iris-assets/plans-thumbs/plan-p17-thumb.jpg",
-  "/mnt/data/the-iris-assets/plans-thumbs/plan-p18-thumb.jpg",
-  "/mnt/data/the-iris-assets/plans-thumbs/plan-p19-thumb.jpg",
+  "/assets/plans-thumbs/plan-p01-thumb.jpg",
+  "/assets/plans-thumbs/plan-p02-thumb.jpg",
+  "/assets/plans-thumbs/plan-p03-thumb.jpg",
+  "/assets/plans-thumbs/plan-p04-thumb.jpg",
+  "/assets/plans-thumbs/plan-p05-thumb.jpg",
+  "/assets/plans-thumbs/plan-p06-thumb.jpg",
+  "/assets/plans-thumbs/plan-p07-thumb.jpg",
+  "/assets/plans-thumbs/plan-p08-thumb.jpg",
+  "/assets/plans-thumbs/plan-p09-thumb.jpg",
+  "/assets/plans-thumbs/plan-p10-thumb.jpg",
+  "/assets/plans-thumbs/plan-p11-thumb.jpg",
+  "/assets/plans-thumbs/plan-p12-thumb.jpg",
+  "/assets/plans-thumbs/plan-p13-thumb.jpg",
+  "/assets/plans-thumbs/plan-p14-thumb.jpg",
+  "/assets/plans-thumbs/plan-p15-thumb.jpg",
+  "/assets/plans-thumbs/plan-p16-thumb.jpg",
+  "/assets/plans-thumbs/plan-p17-thumb.jpg",
+  "/assets/plans-thumbs/plan-p18-thumb.jpg",
+  "/assets/plans-thumbs/plan-p19-thumb.jpg",
 ];
 const PLAN_LARGE = [
-  "/mnt/data/the-iris-assets/plans-large/plan-p01.jpg",
-  "/mnt/data/the-iris-assets/plans-large/plan-p02.jpg",
-  "/mnt/data/the-iris-assets/plans-large/plan-p03.jpg",
-  "/mnt/data/the-iris-assets/plans-large/plan-p04.jpg",
-  "/mnt/data/the-iris-assets/plans-large/plan-p05.jpg",
-  "/mnt/data/the-iris-assets/plans-large/plan-p06.jpg",
-  "/mnt/data/the-iris-assets/plans-large/plan-p07.jpg",
-  "/mnt/data/the-iris-assets/plans-large/plan-p08.jpg",
-  "/mnt/data/the-iris-assets/plans-large/plan-p09.jpg",
-  "/mnt/data/the-iris-assets/plans-large/plan-p10.jpg",
-  "/mnt/data/the-iris-assets/plans-large/plan-p11.jpg",
-  "/mnt/data/the-iris-assets/plans-large/plan-p12.jpg",
-  "/mnt/data/the-iris-assets/plans-large/plan-p13.jpg",
-  "/mnt/data/the-iris-assets/plans-large/plan-p14.jpg",
-  "/mnt/data/the-iris-assets/plans-large/plan-p15.jpg",
-  "/mnt/data/the-iris-assets/plans-large/plan-p16.jpg",
-  "/mnt/data/the-iris-assets/plans-large/plan-p17.jpg",
-  "/mnt/data/the-iris-assets/plans-large/plan-p18.jpg",
-  "/mnt/data/the-iris-assets/plans-large/plan-p19.jpg",
+  "/assets/plans-large/plan-p01.jpg",
+  "/assets/plans-large/plan-p02.jpg",
+  "/assets/plans-large/plan-p03.jpg",
+  "/assets/plans-large/plan-p04.jpg",
+  "/assets/plans-large/plan-p05.jpg",
+  "/assets/plans-large/plan-p06.jpg",
+  "/assets/plans-large/plan-p07.jpg",
+  "/assets/plans-large/plan-p08.jpg",
+  "/assets/plans-large/plan-p09.jpg",
+  "/assets/plans-large/plan-p10.jpg",
+  "/assets/plans-large/plan-p11.jpg",
+  "/assets/plans-large/plan-p12.jpg",
+  "/assets/plans-large/plan-p13.jpg",
+  "/assets/plans-large/plan-p14.jpg",
+  "/assets/plans-large/plan-p15.jpg",
+  "/assets/plans-large/plan-p16.jpg",
+  "/assets/plans-large/plan-p17.jpg",
+  "/assets/plans-large/plan-p18.jpg",
+  "/assets/plans-large/plan-p19.jpg",
 ];
 
 // Branding
